@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Technology {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private String id = "";
     private String title;
     private boolean studied = false;
     private LocalDate deadline;

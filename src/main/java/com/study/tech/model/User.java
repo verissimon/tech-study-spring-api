@@ -3,16 +3,20 @@ package com.study.tech.model;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity(name = "tb_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
-    @Column(unique = true)
+    private String id = "";
+    @Column(unique = true, nullable = false)
     private String username;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Technology> technologies;
+
+    public User() {
+    }
 
     public String getId() {
         return id;
